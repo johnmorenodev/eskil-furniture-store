@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid #cccc;
+
+  .header__logo {
+    cursor: pointer;
+  }
+
+  .header__hamburger {
+    @media screen and (min-width: 586px) {
+      display: none;
+    }
+    transform: scale(2);
+
+    cursor: pointer;
+  }
+
+  .header__desktop {
+    @media screen and (max-width: 586px) {
+      display: none;
+    }
+    width: 400px;
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        display: flex;
+        cursor: pointer;
+        font-size: 15px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+      margin-left: 2px;
+    }
+
+    span {
+      margin-left: 0.3rem;
+    }
+  }
+}

@@ -1,7 +1,14 @@
 import './App.css';
+import Home from './pages/Home';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './utils/ThemeProvider';
 
 function App() {
-  return <div>Hello World!</div>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
+  );
 }
 
 export default App;
