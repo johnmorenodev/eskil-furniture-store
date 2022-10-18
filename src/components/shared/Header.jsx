@@ -1,10 +1,12 @@
 import './Header.css';
 
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import {
+  HiOutlineMenu,
+  HiOutlineSearch,
+  HiOutlineUser,
+  HiOutlineHeart,
+  HiOutlineShoppingBag,
+} from 'react-icons/hi';
 
 export default function Header() {
   return (
@@ -18,24 +20,24 @@ export default function Header() {
           />
         </div>
         <div>
-          <MenuOutlinedIcon className='header__hamburger' />
+          <HiOutlineMenu className='header__hamburger' />
         </div>
         <div className='header__desktop'>
           <ul>
             <li>
-              <SearchOutlinedIcon />
+              <HiOutlineSearch />
               <a href='#'>Search</a>
             </li>
             <li>
-              <PersonOutlineOutlinedIcon />
+              <HiOutlineUser />
               <a href='#'>Account</a>
             </li>
             <li>
-              <FavoriteBorderOutlinedIcon />
+              <HiOutlineHeart />
               <a href='#'>Wishlist</a>
             </li>
             <li>
-              <ShoppingBagOutlinedIcon />
+              <HiOutlineShoppingBag />
               <a href='#'>Cart</a>
               <span className='header__desktop-cart-total'>$100</span>
             </li>
