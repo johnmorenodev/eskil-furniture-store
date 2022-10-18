@@ -1,8 +1,14 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../components/shared/Header';
+import Carousel from '../components/Carousel';
 
 const Home = () => {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <Carousel />
+    </>
+  );
 };
 
 export default Home;
