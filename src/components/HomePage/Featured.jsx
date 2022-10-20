@@ -45,14 +45,14 @@ const buttonMotion = {
   rest: {
     y: 35,
     transition: {
-      ease: 'easeIn',
+      ease: 'easeInOut',
       delay: 0.2,
     },
   },
   hover: {
     y: 0,
     transition: {
-      ease: 'easeIn',
+      ease: 'easeInOut',
       delay: 0.2,
     },
   },
