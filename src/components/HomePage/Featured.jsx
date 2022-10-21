@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { HiOutlineEye, HiOutlineHeart } from 'react-icons/hi';
 
 import './Featured.css';
 
@@ -46,14 +47,14 @@ const buttonMotion = {
     y: 35,
     transition: {
       ease: 'easeInOut',
-      delay: 0.2,
+      duration: 0.4,
     },
   },
   hover: {
     y: 0,
     transition: {
       ease: 'easeInOut',
-      delay: 0.2,
+      duration: 0.4,
     },
   },
 };
@@ -80,16 +81,14 @@ const Featured = () => {
                   whileHover={{
                     outline: '1px solid rgba(204, 204, 204, 1)',
                     transition: {
-                      delay: 0.2,
-                      duration: 0.2,
+                      duration: 0.4,
                       ease: 'easeInOut',
                     },
                   }}
                   animate={{
                     outline: '0px solid rgba(204, 204, 204, 0)',
                     transition: {
-                      delay: 0.2,
-                      duration: 0.2,
+                      duration: 0.4,
                       ease: 'easeInOut',
                     },
                   }}
@@ -98,15 +97,22 @@ const Featured = () => {
                   className='featured__img'
                 />
                 <div className='featured__buttons'>
-                  <motion.button
-                    variants={buttonMotion}
-                    className='featured__button-first'
-                  >
-                    Quick View
-                  </motion.button>
-                  <motion.button variants={buttonMotion}>
-                    Add Wishlist
-                  </motion.button>
+                  <div className='featured__buttons-container'>
+                    <motion.button
+                      variants={buttonMotion}
+                      className='featured__button-first'
+                    >
+                      <HiOutlineEye className='featured__buttons-icon' />
+                      Quick View
+                    </motion.button>
+                  </div>
+
+                  <div className='featured__buttons-container'>
+                    <motion.button variants={buttonMotion}>
+                      <HiOutlineHeart className='featured__buttons-icon' />
+                      <p>Add Wishlist</p>
+                    </motion.button>
+                  </div>
                 </div>
               </motion.div>
 

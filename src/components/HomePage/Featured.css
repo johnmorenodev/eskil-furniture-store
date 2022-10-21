@@ -1,10 +1,10 @@
 .featured {
   margin: 1rem 0;
 }
-.featured .featured__card {
+.featured__card {
   margin: 1rem 0;
 }
-.featured .featured__image-container {
+.featured__image-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,59 +15,70 @@
   font-size: 36px;
   font-weight: 400;
 }
-.featured .featured__card-container {
+.featured__card-container {
   margin: 1rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   grid-gap: 25px;
 }
 @media screen and (max-width: 450px) {
-  .featured .featured__card-container {
+  .featured__card-container {
     display: flex;
     flex-direction: column;
   }
 }
-.featured .featured__card-container .featured__card-details {
+.featured__card-container .featured__card-details {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
 }
-.featured .featured__img {
+.featured__img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   cursor: pointer;
 }
-.featured .featured__price {
+.featured__price {
   font-size: 14px;
   font-weight: 500;
   margin-left: 1rem;
 }
-.featured .featured__add-to-cart {
+.featured__add-to-cart {
   text-decoration: none;
   text-transform: uppercase;
   color: black;
   font-size: 13px;
   font-weight: 600;
 }
-.featured .featured__buttons {
+.featured__buttons {
   position: absolute;
   width: 100%;
   overflow: hidden;
+  display: flex;
 }
-.featured .featured__buttons button {
+.featured__buttons .featured__buttons-container {
+  width: 100%;
+}
+.featured__buttons button {
   padding: 8px;
   background-color: white;
   border-top: 1px solid #ccc;
   border-bottom: none;
   border-left: none;
   border-right: none;
-  width: 50%;
+  width: 100%;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.featured .featured__buttons .featured__button-first {
+.featured__buttons .featured__button-first {
   border-right: 1px solid #ccc;
+}
+.featured__buttons-icon {
+  margin-right: 5px;
 }/*# sourceMappingURL=Featured.css.map */

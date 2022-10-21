@@ -1,11 +1,11 @@
 .featured {
   margin: 1rem 0;
 
-  .featured__card {
+  &__card {
     margin: 1rem 0;
   }
 
-  .featured__image-container {
+  &__image-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
     font-weight: 400;
   }
 
-  .featured__card-container {
+  &__card-container {
     margin: 1rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -36,19 +36,19 @@
     }
   }
 
-  .featured__img {
+  &__img {
     width: 100%;
     object-fit: cover;
     cursor: pointer;
   }
 
-  .featured__price {
+  &__price {
     font-size: 14px;
     font-weight: 500;
     margin-left: 1rem;
   }
 
-  .featured__add-to-cart {
+  &__add-to-cart {
     text-decoration: none;
     text-transform: uppercase;
     color: black;
@@ -56,10 +56,15 @@
     font-weight: 600;
   }
 
-  .featured__buttons {
+  &__buttons {
     position: absolute;
     width: 100%;
     overflow: hidden;
+    display: flex;
+
+    .featured__buttons-container {
+      width: 100%;
+    }
 
     button {
       padding: 8px;
@@ -68,15 +73,24 @@
       border-bottom: none;
       border-left: none;
       border-right: none;
-      width: 50%;
+      width: 100%;
       text-transform: uppercase;
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
+      height: 35px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .featured__button-first {
       border-right: 1px solid #ccc;
     }
+  }
+
+  &__buttons-icon {
+    margin-right: 5px;
   }
 }
