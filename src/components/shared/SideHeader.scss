@@ -1,0 +1,38 @@
+.sidebar {
+  background-color: white;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  max-width: 329px;
+
+  &__container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__icon {
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
+  li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+
+    a {
+      text-decoration: none;
+      color: black;
+      margin-left: 1rem;
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}

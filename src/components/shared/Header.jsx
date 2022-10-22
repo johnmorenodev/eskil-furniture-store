@@ -8,7 +8,7 @@ import {
   HiOutlineShoppingBag,
 } from 'react-icons/hi';
 
-export default function Header() {
+export default function Header({ onClick, searchClickHandler }) {
   return (
     <header>
       <nav className='header'>
@@ -19,12 +19,12 @@ export default function Header() {
             className='header__logo'
           />
         </div>
-        <div>
+        <div onClick={onClick}>
           <HiOutlineMenu className='header__hamburger' />
         </div>
         <div className='header__desktop'>
           <ul>
-            <li>
+            <li onClick={searchClickHandler}>
               <HiOutlineSearch />
               <a href='#'>Search</a>
             </li>
