@@ -1,0 +1,11 @@
+.footer {
+  margin: 0.7rem 0;
+}
+.footer__container {
+  display: flex;
+  align-items: flex-end;
+}
+.footer__credits {
+  font-size: 12px;
+  margin-bottom: 10px;
+}/*# sourceMappingURL=FooterSection.css.map */

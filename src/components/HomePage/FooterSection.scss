@@ -1,0 +1,13 @@
+.footer {
+  margin: 0.7rem 0;
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__credits {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}

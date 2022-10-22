@@ -39,7 +39,7 @@
 
   & img {
     object-fit: cover;
-    width: 100%;
+    width: calc(100% + 10px);
     height: auto;
   }
 

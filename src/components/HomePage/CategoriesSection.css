@@ -35,7 +35,7 @@
 .categories img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 100%;
+  width: calc(100% + 10px);
   height: auto;
 }
 .categories h4 {
