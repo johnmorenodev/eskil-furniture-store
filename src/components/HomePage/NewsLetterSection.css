@@ -23,6 +23,8 @@
 .news-letter__input input {
   width: 100%;
   padding: 1rem;
+  border-width: 1px;
+  border-color: #505050;
 }
 .news-letter__input input::-moz-placeholder {
   color: black;
@@ -37,7 +39,9 @@
   font-size: 14px;
 }
 .news-letter__input input:focus {
-  border: 1px solid black;
+  border-color: black;
+  border-width: 1px;
+  outline: none;
 }
 .news-letter__input {
   position: relative;

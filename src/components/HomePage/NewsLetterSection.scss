@@ -25,6 +25,8 @@
     input {
       width: 100%;
       padding: 1rem;
+      border-width: 1px;
+      border-color: #505050;
     }
 
     input::placeholder {
@@ -33,7 +35,9 @@
     }
 
     input:focus {
-      border: 1px solid black;
+      border-color: black;
+      border-width: 1px;
+      outline: none;
     }
   }
 
