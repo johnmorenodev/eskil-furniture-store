@@ -55,9 +55,9 @@ const CategoriesSection = () => {
             <div key={category.id} className='categories__card'>
               <div className='categories__image-container'>
                 <motion.img
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 5, transition: { duration: 0.4 } }}
-                  animate={{ x: 0, transition: { duration: 0.4 } }}
+                  initial={{ x: -10 }}
+                  whileHover={{ x: 0, transition: { duration: 0.4 } }}
+                  animate={{ x: -10, transition: { duration: 0.4 } }}
                   src={category.imageUrl}
                   alt={category.categoryName}
                 />
