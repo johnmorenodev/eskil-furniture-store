@@ -1,46 +1,9 @@
+import { useState, useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import { HiOutlineEye, HiOutlineHeart } from 'react-icons/hi';
 
 import './Featured.css';
-
-const DUMMY_FEATURED = [
-  {
-    id: 0,
-    name: 'Poliframe tuffed accnet chair 29.1″W, jet black',
-    price: 259.99,
-    url: 'https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/shop-1-img-1.jpg',
-  },
-  {
-    id: 1,
-    name: 'Sauder Boulevard Cafe Lounge Chair, Camel finish',
-    price: 168.99,
-    url: 'https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/shop-2-img-1.jpg',
-  },
-  {
-    id: 2,
-    name: 'Ella Chair With Armrests, Solid Birch and Leather Cushion',
-    price: 358.89,
-    url: 'https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/shop-6-img-1.jpg',
-  },
-  {
-    id: 3,
-    name: 'Singapore Dark Rattan Handmade Armchair',
-    price: 690.89,
-    url: 'https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/shop-28-img-1.jpg',
-  },
-  {
-    id: 4,
-    name: 'Stockholm Minimal Chair, Oak Wood with Fine finish',
-    price: 237.89,
-    url: 'https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/shop-7-img-1.jpg',
-  },
-  {
-    id: 5,
-    name: 'Rattan Spider work Armchair, matte lacque & steel legs',
-    price: 490.89,
-    url: 'https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/shop-29-img-1.jpg',
-  },
-];
 
 const buttonMotion = {
   rest: {
@@ -60,14 +23,26 @@ const buttonMotion = {
 };
 
 const Featured = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3000/featured');
+      const data = await response.json();
+      setFeaturedProducts(data.products);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className='featured'>
       <p>Featured</p>
       <h3>Discover Products</h3>
       <div className='featured__card-container'>
-        {DUMMY_FEATURED.map(prod => {
+        {featuredProducts.map(prod => {
           return (
-            <div key={prod.id} className='featured__card'>
+            <div key={prod._id} className='featured__card'>
               <motion.div
                 intial='rest'
                 whileHover='hover'
@@ -92,7 +67,7 @@ const Featured = () => {
                       ease: 'easeInOut',
                     },
                   }}
-                  src={prod.url}
+                  src={prod.imgUrl}
                   alt={prod.name}
                   className='featured__img'
                 />
