@@ -1,0 +1,10 @@
+.loading {
+  position: relative;
+  margin: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading div {
+  position: absolute;
+}/*# sourceMappingURL=LoadingSpinner.css.map */
