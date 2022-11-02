@@ -1,4 +1,9 @@
+import { useState } from 'react';
+
 import './Header.css';
+
+import SideHeader from './SideHeader';
+import SearchSection from './SearchSection';
 
 import {
   HiOutlineMenu,
@@ -7,8 +12,22 @@ import {
   HiOutlineHeart,
   HiOutlineShoppingBag,
 } from 'react-icons/hi';
+import { AnimatePresence } from 'framer-motion';
 
-export default function Header({ onClick, searchClickHandler }) {
+export default function Header() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const handleSidebarOnclick = () => {
+    setIsSidebarOpen(prevValue => !prevValue);
+    console.log(isSidebarOpen);
+  };
+
+  const handleSearchOnclick = () => {
+    setIsSearchOpen(prevValue => !prevValue);
+    console.log(isSearchOpen);
+  };
+
   return (
     <header>
       <nav className='header'>
@@ -19,12 +38,12 @@ export default function Header({ onClick, searchClickHandler }) {
             className='header__logo'
           />
         </div>
-        <div onClick={onClick}>
+        <div onClick={handleSidebarOnclick}>
           <HiOutlineMenu className='header__hamburger' />
         </div>
         <div className='header__desktop'>
           <ul>
-            <li onClick={searchClickHandler}>
+            <li onClick={handleSearchOnclick}>
               <HiOutlineSearch />
               <a href='#'>Search</a>
             </li>
@@ -44,6 +63,10 @@ export default function Header({ onClick, searchClickHandler }) {
           </ul>
         </div>
       </nav>
+      <AnimatePresence>
+        {isSidebarOpen && <SideHeader onClick={handleSidebarOnclick} />}
+        {isSearchOpen && <SearchSection onClick={handleSearchOnclick} />}
+      </AnimatePresence>
     </header>
   );
 }
