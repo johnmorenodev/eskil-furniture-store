@@ -1,0 +1,10 @@
+.loading {
+  position: relative;
+  margin: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    position: absolute;
+  }
+}
