@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 .news-letter__container {
@@ -28,15 +29,15 @@
 }
 .news-letter__input input::-moz-placeholder {
   color: black;
-  font-size: 14px;
+  font-size: 16px;
 }
 .news-letter__input input:-ms-input-placeholder {
   color: black;
-  font-size: 14px;
+  font-size: 16px;
 }
 .news-letter__input input::placeholder {
   color: black;
-  font-size: 14px;
+  font-size: 16px;
 }
 .news-letter__input input:focus {
   border-color: black;

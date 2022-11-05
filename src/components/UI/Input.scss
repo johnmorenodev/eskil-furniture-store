@@ -1,0 +1,17 @@
+.shared__input {
+  width: 100%;
+  padding: 1rem;
+  border-width: 1px;
+  border-color: #505050;
+
+  &::placeholder {
+    color: black;
+    font-size: 16px;
+  }
+
+  &:focus {
+    border-color: black;
+    border-width: 1px;
+    outline: none;
+  }
+}

@@ -3,6 +3,7 @@ import React from 'react';
 import './NewsLetterSection.css';
 
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
+import Input from '../UI/Input';
 
 const NewsLetterSection = () => {
   return (
@@ -13,7 +14,7 @@ const NewsLetterSection = () => {
           stories, invitations to exclusive design events and much, much more.
         </p>
         <div className='news-letter__input'>
-          <input type='email' placeholder='Enter Email Address' />
+          <Input type='email' placeholder='Enter Email Address' />
           <div className='news-letter__button-container'>
             <button className='news-letter__button'>
               <p>Subscribe</p>

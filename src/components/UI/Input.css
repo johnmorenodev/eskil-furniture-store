@@ -1,0 +1,23 @@
+.shared__input {
+  width: 100%;
+  padding: 1rem;
+  border-width: 1px;
+  border-color: #505050;
+}
+.shared__input::-moz-placeholder {
+  color: black;
+  font-size: 16px;
+}
+.shared__input:-ms-input-placeholder {
+  color: black;
+  font-size: 16px;
+}
+.shared__input::placeholder {
+  color: black;
+  font-size: 16px;
+}
+.shared__input:focus {
+  border-color: black;
+  border-width: 1px;
+  outline: none;
+}/*# sourceMappingURL=Input.css.map */

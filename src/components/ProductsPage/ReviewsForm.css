@@ -1,0 +1,87 @@
+.reviews__form {
+  margin: 2rem 0;
+}
+.reviews__form-title {
+  font-size: 30px;
+}
+.reviews__form-text {
+  font-size: 16px;
+}
+.reviews__form form label {
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+}
+.reviews__form form .reviews__comment-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+.reviews__form form textarea {
+  padding: 1rem;
+  border-width: 1px;
+  border-color: #505050;
+}
+.reviews__form form textarea::-moz-placeholder {
+  color: black;
+  font-size: 16px;
+}
+.reviews__form form textarea:-ms-input-placeholder {
+  color: black;
+  font-size: 16px;
+}
+.reviews__form form textarea::placeholder {
+  color: black;
+  font-size: 16px;
+}
+.reviews__form form textarea:focus {
+  border-color: black;
+  border-width: 1px;
+  outline: none;
+}
+.reviews__form form textarea::-moz-placeholder {
+  color: black;
+  font-size: 16px;
+}
+.reviews__form form textarea:-ms-input-placeholder {
+  color: black;
+  font-size: 16px;
+}
+.reviews__form form textarea::placeholder {
+  color: black;
+  font-size: 16px;
+}
+.reviews__form form .reviews__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.reviews__form form .reviews__bottom div {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+}
+.reviews__form form .reviews__bottom div input {
+  padding: 1rem;
+}
+.reviews__form form .reviews__bottom div input::-moz-placeholder {
+  font-size: 16px;
+  color: black;
+}
+.reviews__form form .reviews__bottom div input:-ms-input-placeholder {
+  font-size: 16px;
+  color: black;
+}
+.reviews__form form .reviews__bottom div input::placeholder {
+  font-size: 16px;
+  color: black;
+}
+.reviews__form button {
+  padding: 0.6rem;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  font-size: 18px;
+  color: white;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}/*# sourceMappingURL=ReviewsForm.css.map */

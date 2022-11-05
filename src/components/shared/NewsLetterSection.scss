@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 
   &__container {
@@ -31,7 +32,7 @@
 
     input::placeholder {
       color: black;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     input:focus {
