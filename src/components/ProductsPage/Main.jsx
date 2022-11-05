@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 
+import Button from '../UI/Button';
+
 import './Main.css';
 
 const Main = ({ product }) => {
@@ -24,7 +26,7 @@ const Main = ({ product }) => {
                 <p>1</p>
                 <button>+</button>
               </div>
-              <button className='product__button-cart'>Add To Cart</button>
+              <Button>Add To Cart</Button>
             </div>
             <p className='product__wishlist'>Add to Wishlist</p>
           </div>

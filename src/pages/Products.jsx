@@ -6,6 +6,7 @@ import Main from '../components/ProductsPage/Main';
 
 import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../components/shared/LoadingSpinner';
+import RelatedProducts from '../components/ProductsPage/RelatedProducts';
 
 const Products = () => {
   const [product, setProduct] = useState({});
@@ -21,6 +22,7 @@ const Products = () => {
       const data = await response.json();
       setProduct(data);
       setIsLoading(false);
+      console.log(data);
     }
 
     getProduct();
@@ -29,8 +31,11 @@ const Products = () => {
   return (
     <Container>
       {isLoading && <LoadingSpinner />}
-      {!isLoading && <Main product={product} />}
-      {!isLoading && <AccordionsContainer product={product} />}
+      {!isLoading && <Main product={product.product} />}
+      {!isLoading && <AccordionsContainer product={product.product} />}
+      {!isLoading && (
+        <RelatedProducts product={product.relatedProducts.products} />
+      )}
     </Container>
   );
 };
