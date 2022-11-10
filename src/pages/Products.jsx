@@ -8,34 +8,33 @@ import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../components/shared/LoadingSpinner';
 import RelatedProducts from '../components/ProductsPage/RelatedProducts';
 
+import { useQuery } from 'react-query';
+
 const Products = () => {
-  const [product, setProduct] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const productId = useParams().productId;
+  const fetchProducts = async () => {
+    const response = await fetch(`http://localhost:3000/products/${productId}`);
+    return await response.json();
+  };
+  const {
+    isLoading,
+    error,
+    data: product,
+  } = useQuery(`fetchProducts/${productId}`, fetchProducts);
 
-  useEffect(() => {
-    async function getProduct() {
-      setIsLoading(true);
-      const response = await fetch(
-        `http://localhost:3000/products/${productId}`
-      );
-      const data = await response.json();
-      setProduct(data);
-      setIsLoading(false);
-      console.log(data);
-    }
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
-    getProduct();
-  }, [productId]);
-
+  if (error) {
+    return <h1>An error has occured.</h1>;
+  }
+  console.log(product);
   return (
     <Container>
-      {isLoading && <LoadingSpinner />}
-      {!isLoading && <Main product={product.product} />}
-      {!isLoading && <AccordionsContainer product={product.product} />}
-      {!isLoading && (
-        <RelatedProducts product={product.relatedProducts.products} />
-      )}
+      <Main product={product.product} />
+      <AccordionsContainer product={product.product} />
+      <RelatedProducts product={product.relatedProducts} />
     </Container>
   );
 };

@@ -9,34 +9,31 @@ import { Link } from 'react-router-dom';
 import './Featured.css';
 import CardWithBorder from '../shared/CardWithBorder';
 
+import { useQuery } from 'react-query';
+
 const Featured = () => {
-  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const fetchFeatured = async () => {
+    const response = await fetch('http://localhost:3000/featured');
+    return await response.json();
+  };
+  const { isLoading, error, data } = useQuery('fetchFeatured', fetchFeatured);
 
-  const [isLoading, setIsLoading] = useState(false);
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const response = await fetch('http://localhost:3000/featured');
-      const data = await response.json();
-      console.log(data);
-      setFeaturedProducts(data);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
+  if (error) {
+    return <h1>An error has occured.</h1>;
+  }
 
   return (
     <div className='featured'>
       <p>Featured</p>
       <h3>Discover Products</h3>
       <div className='featured__card-container'>
-        {isLoading && <LoadingSpinner />}
-        {!isLoading &&
-          featuredProducts.map(prod => {
-            return <CardWithBorder prod={prod} />;
-          })}
+        {data.map(prod => {
+          return <CardWithBorder key={prod._id} prod={prod} />;
+        })}
       </div>
     </div>
   );

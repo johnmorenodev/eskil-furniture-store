@@ -6,17 +6,11 @@ import ReviewsForm from './ReviewsForm';
 import './ReviewsAccordion.css';
 
 const DescriptionAccordion = ({ product }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [reviews, setReviews] = useState(null);
 
-  const onClickHander = () => {
-    setIsOpen(prevValue => !prevValue);
-    console.log(isOpen);
-  };
-
   return (
-    <Accordion text={'Reviews'} onClickHander={onClickHander} isOpen={isOpen}>
-      {isOpen && reviews && (
+    <Accordion text={'Reviews'}>
+      {reviews && (
         <div>
           <p className='description__paragraph'>{product.longDescription}</p>
           {Object.keys(product.details).map(key => {
@@ -33,7 +27,7 @@ const DescriptionAccordion = ({ product }) => {
           })}
         </div>
       )}
-      {isOpen && <ReviewsForm productName={'TEST'} />}
+      <ReviewsForm productName={'TEST'} />
     </Accordion>
   );
 };

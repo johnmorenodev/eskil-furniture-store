@@ -23,9 +23,9 @@ const buttonMotion = {
   },
 };
 
-const cardWithBorder = ({ prod, link }) => {
+const CardWithBorder = ({ prod }) => {
   return (
-    <div key={prod._id} className='card__card'>
+    <div className='card__card'>
       <Link to={`/products/${prod._id}`}>
         <motion.div
           intial='rest'
@@ -88,4 +88,4 @@ const cardWithBorder = ({ prod, link }) => {
   );
 };
 
-export default cardWithBorder;
+export default CardWithBorder;

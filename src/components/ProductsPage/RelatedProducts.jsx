@@ -12,7 +12,7 @@ const RelatedProducts = ({ product }) => {
       <h3>Related Products</h3>
       <div className='relatedProducts__container'>
         {product.map(prod => {
-          return <CardWithBorder prod={prod} />;
+          return <CardWithBorder key={prod._id} prod={prod} />;
         })}
       </div>
     </div>
