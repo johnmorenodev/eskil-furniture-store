@@ -6,7 +6,7 @@ import ScrollToTop from './components/utils/ScrollToTop';
 function App() {
   return (
     <ScrollToTop>
-      <Layout />;
+      <Layout />
     </ScrollToTop>
   );
 }

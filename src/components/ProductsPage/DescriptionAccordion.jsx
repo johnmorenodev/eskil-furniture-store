@@ -2,22 +2,23 @@ import { useState } from 'react';
 
 import Accordion from '../UI/Accordion';
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 import './DescriptionAccordion.css';
 
 const DescriptionAccordion = ({ product }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const onClickHander = () => {
-    setIsOpen(prevValue => !prevValue);
-    console.log(isOpen);
-  };
   return (
-    <Accordion
-      text={'Description'}
-      onClickHander={onClickHander}
-      isOpen={isOpen}
-    >
-      {isOpen && (
+    <Accordion text={'Description'}>
+      <div
+        initial='collapsed'
+        animate='open'
+        exit='collapsed'
+        variants={{
+          open: { height: 'auto', overflow: 'none' },
+          collapsed: { height: 0, overflow: 'hidden' },
+        }}
+        transition={{ duration: 0.3, ease: 'easeIn' }}
+      >
         <div>
           <p className='description__paragraph'>{product.longDescription}</p>
           {Object.keys(product.details).map(key => {
@@ -33,7 +34,7 @@ const DescriptionAccordion = ({ product }) => {
             );
           })}
         </div>
-      )}
+      </div>
     </Accordion>
   );
 };

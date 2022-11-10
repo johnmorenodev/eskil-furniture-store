@@ -27,6 +27,8 @@
 }
 .categories__card {
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 .categories img {
   -o-object-fit: cover;
