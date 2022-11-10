@@ -2,25 +2,12 @@ import React from 'react';
 
 import './Input.css';
 
-const Input = ({
-  type,
-  placeholder,
-  name,
-  id,
-  className = '',
-  required = false,
-}) => {
-  const classes = 'shared__input ' + className;
-  return (
-    <input
-      type={type || 'text'}
-      placeholder={placeholder || ''}
-      name={name || ''}
-      id={id || ''}
-      className={classes}
-      required={required}
-    />
-  );
-};
+import { useFormContext } from 'react-hook-form';
+import { forwardRef } from 'react';
 
+const Input = ({ name, className = '', ...rest }, ref) => {
+  const methods = useFormContext();
+  const classes = 'shared__input ' + className;
+  return <input className={classes} {...rest} />;
+};
 export default Input;

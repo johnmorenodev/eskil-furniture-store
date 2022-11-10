@@ -1,0 +1,26 @@
+.log-in {
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.log-in h1 {
+  text-transform: uppercase;
+  font-size: 42px;
+  font-weight: 400;
+}
+.log-in form {
+  margin: 1rem 0;
+  width: 100%;
+}
+.log-in__section {
+  margin: 1rem 0;
+}
+.log-in a {
+  text-transform: uppercase;
+  color: black;
+}
+.log-in p {
+  color: red;
+  margin: 0.5rem 0;
+}/*# sourceMappingURL=LogIn.css.map */
