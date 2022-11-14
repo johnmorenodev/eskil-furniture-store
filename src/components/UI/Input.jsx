@@ -2,25 +2,11 @@ import React from 'react';
 
 import './Input.css';
 
-const Input = ({
-  type,
-  placeholder,
-  name,
-  id,
-  className = '',
-  required = false,
-}) => {
+const Input = ({ register, name, validation, className = '', ...rest }) => {
   const classes = 'shared__input ' + className;
-  return (
-    <input
-      type={type || 'text'}
-      placeholder={placeholder || ''}
-      name={name || ''}
-      id={id || ''}
-      className={classes}
-      required={required}
-    />
-  );
+  if (validation) {
+    return <input {...register(name)} className={classes} {...rest} />;
+  }
+  return <input name={name} className={classes} {...rest} />;
 };
-
 export default Input;

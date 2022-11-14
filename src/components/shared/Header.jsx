@@ -5,6 +5,8 @@ import './Header.css';
 import SideHeader from './SideHeader';
 import SearchSection from './SearchSection';
 
+import { Link } from 'react-router-dom';
+
 import {
   HiOutlineMenu,
   HiOutlineSearch,
@@ -49,7 +51,7 @@ export default function Header() {
             </li>
             <li>
               <HiOutlineUser />
-              <a href='#'>Account</a>
+              <Link to={'my-account/log-in'}>Account</Link>
             </li>
             <li>
               <HiOutlineHeart />
