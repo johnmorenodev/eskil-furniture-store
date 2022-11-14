@@ -2,12 +2,11 @@ import React from 'react';
 
 import './Input.css';
 
-import { useFormContext } from 'react-hook-form';
-import { forwardRef } from 'react';
-
-const Input = ({ name, className = '', ...rest }, ref) => {
-  const methods = useFormContext();
+const Input = ({ register, name, validation, className = '', ...rest }) => {
   const classes = 'shared__input ' + className;
-  return <input className={classes} {...rest} />;
+  if (validation) {
+    return <input {...register(name)} className={classes} {...rest} />;
+  }
+  return <input name={name} className={classes} {...rest} />;
 };
 export default Input;

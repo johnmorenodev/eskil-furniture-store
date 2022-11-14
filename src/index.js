@@ -16,27 +16,18 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Account from './pages/Account';
 import LogIn from './components/AccountPage/LogIn';
+import CreateAccount from './components/AccountPage/CreateAccount';
+import AuthContextProvider from './components/context/authContext';
 
 const queryClient = new QueryClient();
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<App />}>
-      <Route index element={<Home />} />
-      <Route path='/my-account' element={<Account />}>
-        <Route path='log-in' element={<LogIn />} />
-      </Route>
-      <Route path='products/:productId' element={<Products />} />
-      <Route path='category/:categoryId' element={<Category />} />
-    </Route>
-  )
-);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

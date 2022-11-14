@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 
 import './LoadingSpinner.css';
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ size = 100 }) => {
   return (
     <div className='loading'>
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
       >
-        <CgSpinnerTwoAlt size={100} />
+        <CgSpinnerTwoAlt size={size} />
       </motion.div>
     </div>
   );

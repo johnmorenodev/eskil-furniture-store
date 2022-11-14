@@ -1,0 +1,26 @@
+.create-account {
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.create-account h1 {
+  text-transform: uppercase;
+  font-size: 42px;
+  font-weight: 400;
+}
+.create-account form {
+  margin: 1rem 0;
+  width: 100%;
+}
+.create-account__section {
+  margin: 1rem 0;
+}
+.create-account a {
+  text-transform: uppercase;
+  color: black;
+}
+.create-account p {
+  color: red;
+  margin: 0.5rem 0;
+}/*# sourceMappingURL=CreateAccount.css.map */
