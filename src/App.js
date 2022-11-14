@@ -1,5 +1,20 @@
+import { useContext } from 'react';
+
+//CSS
 import './App.css';
 
+//REACT COMPONENTS
+import Category from './pages/Category/Category';
+import Home from './pages/Home/Home';
+import Products from './pages/Products/Products';
+import Profile from './pages/MyAccount/Profile/Profile';
+import Account from './pages/MyAccount/Account';
+import LogIn from './pages/MyAccount/Login/LogIn';
+import CreateAccount from './pages/MyAccount/CreateAccount/CreateAccount';
+import Layout from './components/UI/Layout/Layout';
+import ScrollToTop from './utils/ScrollToTop';
+
+//THIRD PARTY
 import {
   createBrowserRouter,
   RouterProvider,
@@ -8,23 +23,11 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import Category from './pages/Category';
-import Home from './pages/Home';
-import Products from './pages/Products';
-import Account from './pages/Account';
-import LogIn from './components/AccountPage/LogIn';
-import CreateAccount from './components/AccountPage/CreateAccount';
-
-import Layout from './components/UI/Layout.jsx';
-import ScrollToTop from './components/utils/ScrollToTop';
-
-import { AuthContext } from './components/context/authContext';
-import { useContext } from 'react';
-import Profile from './components/AccountPage/Profile';
+//UTILS
+import { AuthContext } from './context/authContext';
 
 function App() {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
