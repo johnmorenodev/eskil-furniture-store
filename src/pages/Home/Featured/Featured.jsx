@@ -8,12 +8,14 @@ import CardWithBorder from '../../../components/shared/CardWithBorder/CardWithBo
 //THIRD PARTY
 import { useQuery } from 'react-query';
 
+//MISC
+import { fetchFeaturedProducts } from '../../../utils/api';
+
 const Featured = () => {
-  const fetchFeatured = async () => {
-    const response = await fetch('http://localhost:3000/featured');
-    return await response.json();
-  };
-  const { isLoading, error, data } = useQuery('fetchFeatured', fetchFeatured);
+  const { isLoading, error, data } = useQuery(
+    'fetchFeatured',
+    fetchFeaturedProducts
+  );
 
   if (isLoading) {
     return <LoadingSpinner />;

@@ -1,0 +1,22 @@
+.quantity__button {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border: 1px solid #ccc;
+
+  button {
+    margin: 0.3rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  p {
+    margin: 0 0.5rem;
+  }
+
+  .button__increment,
+  .button__decrement {
+    font-size: 20px;
+  }
+}

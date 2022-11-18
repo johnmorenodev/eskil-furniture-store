@@ -1,0 +1,25 @@
+.dropdown {
+  position: relative;
+}
+.dropdown__account {
+  display: flex;
+  align-items: center;
+}
+.dropdown__list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: 0.4rem 0;
+  background-color: white;
+  width: 150px;
+  border: 0.5px solid #ccc;
+  border-radius: 5px;
+  z-index: 20;
+}
+.dropdown__list a {
+  margin: 0.3rem 0;
+  padding: 0.3rem;
+}
+.dropdown__list a:hover {
+  background-color: rgb(243, 243, 243);
+}/*# sourceMappingURL=AccountDropDown.css.map */

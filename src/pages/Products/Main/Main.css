@@ -60,6 +60,7 @@
   border: none;
   background-color: #fff;
   font-size: 16px;
+  cursor: pointer;
 }
 .product__wishlist {
   font-size: 13px;
@@ -74,4 +75,8 @@
   font-size: 18px;
   border-radius: 5px;
   border: 1px solid black;
+}
+
+.button__quantity {
+  margin-right: 2rem;
 }/*# sourceMappingURL=Main.css.map */

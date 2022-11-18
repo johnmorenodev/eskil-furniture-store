@@ -10,24 +10,17 @@ import CategoriesSection from '../../../components/shared/CategoriesCard/Categor
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
+//MISC
+import { fetchProductsCategoryById } from '../../../utils/api';
+
 const CategoryProducts = () => {
   const categoryId = useParams().categoryId;
-
-  const fetchProductsInCategories = async () => {
-    const response = await fetch(
-      `http://localhost:3000/category/${categoryId}`
-    );
-    return await response.json();
-  };
 
   const {
     isLoading,
     error,
     data: categoryProducts,
-  } = useQuery(
-    `fetchProductsInCategories/${categoryId}`,
-    fetchProductsInCategories
-  );
+  } = useQuery(categoryId, () => fetchProductsCategoryById(categoryId));
 
   if (isLoading) {
     return <LoadingSpinner />;

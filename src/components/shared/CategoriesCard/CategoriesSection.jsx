@@ -9,11 +9,9 @@ import { motion } from 'framer-motion';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
+//MISC
+import { fetchCategories } from '../../../utils/api';
 const CategoriesSection = () => {
-  const fetchCategories = async () => {
-    const response = await fetch('http://localhost:3000/categories');
-    return await response.json();
-  };
   const { isLoading, error, data } = useQuery(
     'fetchCategories',
     fetchCategories

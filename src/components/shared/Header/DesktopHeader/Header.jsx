@@ -7,6 +7,7 @@ import './Header.css';
 //REACT COMPONENTS
 import SideHeader from '../SideHeader/SideHeader';
 import SearchSection from '../Search/SearchSection';
+import AccountDropDown from './AccountDropDown/AccountDropDown';
 
 //THIRD PARTY
 import { Link } from 'react-router-dom';
@@ -22,27 +23,31 @@ import { AnimatePresence } from 'framer-motion';
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isDropDownOpen, setisDropDownOpen] = useState(false);
+
+  const dropDownHandler = () => {
+    console.log(isDropDownOpen);
+    setisDropDownOpen(prevValue => !prevValue);
+  };
 
   const handleSidebarOnclick = () => {
     setIsSidebarOpen(prevValue => !prevValue);
-    console.log(isSidebarOpen);
   };
 
   const handleSearchOnclick = () => {
     setIsSearchOpen(prevValue => !prevValue);
-    console.log(isSearchOpen);
   };
 
   return (
     <header>
       <nav className='header'>
-        <div>
+        <Link to='/'>
           <img
             src='https://eskil.qodeinteractive.com/wp-content/uploads/2022/03/main-logo.png'
             alt='Logo'
             className='header__logo'
           />
-        </div>
+        </Link>
         <div onClick={handleSidebarOnclick}>
           <HiOutlineMenu className='header__hamburger' />
         </div>
@@ -52,9 +57,8 @@ export default function Header() {
               <HiOutlineSearch />
               <a href='#'>Search</a>
             </li>
-            <li>
-              <HiOutlineUser />
-              <Link to={'my-account/log-in'}>Account</Link>
+            <li onClick={dropDownHandler}>
+              <AccountDropDown isDropDownOpen={isDropDownOpen} />
             </li>
             <li>
               <HiOutlineHeart />
