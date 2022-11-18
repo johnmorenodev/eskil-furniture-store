@@ -1,0 +1,29 @@
+.dropdown {
+  position: relative;
+
+  &__account {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: 0.4rem 0;
+    background-color: white;
+    width: 150px;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+    z-index: 20;
+
+    a {
+      margin: 0.3rem 0;
+      padding: 0.3rem;
+
+      &:hover {
+        background-color: rgb(243, 243, 243);
+      }
+    }
+  }
+}

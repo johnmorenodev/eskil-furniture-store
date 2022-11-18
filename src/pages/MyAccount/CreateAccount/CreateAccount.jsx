@@ -18,6 +18,7 @@ import * as yup from 'yup';
 
 //MISC
 import { AuthContext } from '../../../context/authContext';
+import { fetchCreateUser } from '../../../utils/api';
 
 const CreateAccountSchema = yup.object({
   username: yup.string('test').required('This field is required.'),
@@ -37,22 +38,6 @@ const CreateAccountSchema = yup.object({
     .oneOf([yup.ref('password'), null], 'Password does not match.'),
 });
 
-const postUser = async data => {
-  try {
-    const res = await fetch('http://localhost:3000/sign-up', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    return await res.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const CreateAccount = () => {
   const { dispatch } = useContext(AuthContext);
 
@@ -66,15 +51,19 @@ const CreateAccount = () => {
     formState: { errors },
   } = methods;
 
-  const { mutate, isLoading, error, data } = useMutation(postUser, {
+  const {
+    mutate,
+    isLoading,
+    error,
+    data: userData,
+  } = useMutation(fetchCreateUser, {
     onSuccess: userData => {
-      localStorage.setItem('user', JSON.stringify(userData));
       dispatch({ type: 'LOG_IN', payload: userData });
     },
   });
 
-  const formSubmit = data => {
-    mutate(data);
+  const formSubmit = userData => {
+    mutate(userData);
   };
 
   return (

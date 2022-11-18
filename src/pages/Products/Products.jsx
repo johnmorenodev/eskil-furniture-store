@@ -9,17 +9,16 @@ import RelatedProducts from './RelatedProducts/RelatedProducts';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
+//MISC
+import { fetchProductById } from '../../utils/api';
+
 const Products = () => {
-  const productId = useParams().productId;
-  const fetchProducts = async () => {
-    const response = await fetch(`http://localhost:3000/products/${productId}`);
-    return await response.json();
-  };
+  const { productId } = useParams();
   const {
     isLoading,
     error,
     data: product,
-  } = useQuery(`fetchProducts/${productId}`, fetchProducts);
+  } = useQuery(productId, () => fetchProductById(productId));
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -28,14 +27,16 @@ const Products = () => {
   if (error) {
     return <h1>An error has occured.</h1>;
   }
-  console.log(product);
-  return (
-    <Container>
-      <Main product={product.product} />
-      <AccordionsContainer product={product.product} />
-      <RelatedProducts product={product.relatedProducts} />
-    </Container>
-  );
+
+  if (product) {
+    return (
+      <Container>
+        <Main product={product.product} />
+        <AccordionsContainer product={product.product} />
+        <RelatedProducts product={product.relatedProducts} />
+      </Container>
+    );
+  }
 };
 
 export default Products;

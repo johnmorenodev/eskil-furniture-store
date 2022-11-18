@@ -5,6 +5,7 @@ import App from './App';
 import AuthContextProvider from './context/authContext';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import CartContextProvider from './context/cartContext';
 
 const queryClient = new QueryClient();
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
-        <App />
+        <CartContextProvider>
+          <App />
+        </CartContextProvider>
       </AuthContextProvider>
     </QueryClientProvider>
   </React.StrictMode>

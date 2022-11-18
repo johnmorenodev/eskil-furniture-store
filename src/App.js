@@ -12,7 +12,7 @@ import Account from './pages/MyAccount/Account';
 import LogIn from './pages/MyAccount/Login/LogIn';
 import CreateAccount from './pages/MyAccount/CreateAccount/CreateAccount';
 import Layout from './components/UI/Layout/Layout';
-import ScrollToTop from './utils/ScrollToTop';
+import ScrollToTop from './components/shared/ScrollToTop/ScrollToTop';
 
 //THIRD PARTY
 import {
@@ -40,20 +40,19 @@ function App() {
         }
       >
         <Route index element={<Home />} />
-        <Route path='/my-account' element={<Account />}>
-          <Route
-            index
-            element={user ? <Profile /> : <Navigate to='log-in' />}
-          />
-          <Route
-            path='log-in'
-            element={user ? <Navigate to={'/my-account'} /> : <LogIn />}
-          />
-          <Route
-            path='create-account'
-            element={user ? <Navigate to={'/my-account'} /> : <CreateAccount />}
-          />
-        </Route>
+        <Route
+          path='/my-account'
+          element={user ? <Profile /> : <Navigate to='log-in' />}
+        />
+        <Route
+          path='/my-account/log-in'
+          element={user ? <Navigate to={'/my-account'} /> : <LogIn />}
+        />
+        <Route
+          path='/my-account/create-account'
+          element={user ? <Navigate to={'/my-account'} /> : <CreateAccount />}
+        />
+
         <Route path='products/:productId' element={<Products />} />
         <Route path='category/:categoryId' element={<Category />} />
       </Route>

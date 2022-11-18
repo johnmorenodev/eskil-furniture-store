@@ -17,6 +17,7 @@ import * as yup from 'yup';
 
 //MISC
 import { AuthContext } from '../../../context/authContext';
+import { fetchLogInRequest } from '../../../utils/api';
 
 const LogInSchema = yup.object({
   email: yup
@@ -25,21 +26,6 @@ const LogInSchema = yup.object({
     .email('Must be a valid email.'),
   password: yup.string().required('This field is required.'),
 });
-
-const logInRequest = async data => {
-  try {
-    const res = await fetch('http://localhost:3000/log-in', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-    return await res.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 const LogIn = () => {
   const { dispatch } = useContext(AuthContext);
@@ -53,9 +39,8 @@ const LogIn = () => {
     formState: { errors },
   } = methods;
 
-  const { mutate, isLoading, error } = useMutation(logInRequest, {
+  const { mutate, isLoading, error } = useMutation(fetchLogInRequest, {
     onSuccess: userData => {
-      localStorage.setItem('user', JSON.stringify(userData));
       dispatch({ type: 'LOG_IN', payload: userData });
     },
   });

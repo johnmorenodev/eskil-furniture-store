@@ -1,0 +1,19 @@
+.quantity__button {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.quantity__button button {
+  margin: 0.3rem;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.quantity__button p {
+  margin: 0 0.5rem;
+}
+.quantity__button .button__increment,
+.quantity__button .button__decrement {
+  font-size: 20px;
+}/*# sourceMappingURL=QuantityButton.css.map */
