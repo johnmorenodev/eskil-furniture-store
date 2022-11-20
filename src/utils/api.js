@@ -110,7 +110,7 @@ export const fetchRemoveProduct = async data => {
     const result = await fetch(
       `http://localhost:3000/removeProduct/${productId}`,
       {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           Authorization: 'BEARER ' + token,

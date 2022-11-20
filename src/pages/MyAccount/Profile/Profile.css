@@ -15,6 +15,24 @@
   text-transform: uppercase;
   font-weight: 400;
 }
+.profile__cart-empty {
+  text-align: center;
+}
+.profile__cart-empty img {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 400px;
+}
+.profile__cart-empty p {
+  font-size: 32px;
+  margin: 0.4rem 0;
+}
+.profile__cart-empty a {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 0.4rem;
+}
 .profile h2,
 .profile h1 {
   text-align: center;
@@ -23,10 +41,4 @@
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
-}
-.profile__cart-items {
-  width: 100%;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  margin: 1rem 0;
 }/*# sourceMappingURL=Profile.css.map */
