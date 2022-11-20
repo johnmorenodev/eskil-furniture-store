@@ -4,21 +4,40 @@ import './CartContents.css';
 
 import QuantityButton from '../../../../components/UI/Button/QuantityButton/QuantityButton';
 
-import { CiTrash } from 'react-icons/ci';
+import { BsTrash } from 'react-icons/bs';
 import { useMutation, useQueryClient } from 'react-query';
 import { fetchChangeQuantity, fetchRemoveProduct } from '../../../../utils/api';
+import { useCallback } from 'react';
+
+const debounce = (cb, delay = 1000) => {
+  let timeout;
+
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      cb(...args);
+    }, delay);
+  };
+};
 
 const CartContents = ({ prod, user }) => {
   const [quantity, setQuantity] = useState(prod.quantity);
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    quantityMutation.mutate({
-      token: user.token,
-      quantity: quantity,
-      productId: prod.productId._id,
-    });
+    changeQuantity(quantity);
   }, [quantity]);
+
+  const changeQuantity = useCallback(
+    debounce(quantity => {
+      quantityMutation.mutate({
+        token: user.token,
+        quantity: quantity,
+        productId: prod.productId._id,
+      });
+    }, 500),
+    []
+  );
 
   const quantityMutation = useMutation(fetchChangeQuantity, {
     onSuccess: () => {
@@ -64,15 +83,17 @@ const CartContents = ({ prod, user }) => {
         <p className='cart__product-price'>
           $ {prod.productId.price} x {quantity}
         </p>
-        <p className='cart__product-subtotal'>$ {prod.subtotal}</p>
+        <p className='cart__product-subtotal'>
+          $ {prod.productId.price * quantity}
+        </p>
 
         <div className='cart__product-buttons'>
           <QuantityButton
             incrementHandler={incrementHandler}
             decrementHandler={decrementHandler}
-            quantity={prod.quantity ?? 1}
+            quantity={quantity ?? 1}
           />
-          <CiTrash size={20} onClick={removeProductHandler} />
+          <BsTrash size={20} onClick={removeProductHandler} />
         </div>
       </div>
     </div>
