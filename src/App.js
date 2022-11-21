@@ -1,18 +1,7 @@
-import { useContext } from 'react';
+import React, { useContext, Suspense } from 'react';
 
 //CSS
 import './App.css';
-
-//REACT COMPONENTS
-import Category from './pages/Category/Category';
-import Home from './pages/Home/Home';
-import Products from './pages/Products/Products';
-import Profile from './pages/MyAccount/Profile/Profile';
-import Account from './pages/MyAccount/Account';
-import LogIn from './pages/MyAccount/Login/LogIn';
-import CreateAccount from './pages/MyAccount/CreateAccount/CreateAccount';
-import Layout from './components/UI/Layout/Layout';
-import ScrollToTop from './components/shared/ScrollToTop/ScrollToTop';
 
 //THIRD PARTY
 import {
@@ -25,6 +14,37 @@ import {
 
 //UTILS
 import { AuthContext } from './context/authContext';
+import OrderHistory from './pages/MyAccount/OrderHistory/OrderHistory';
+import NotFound from './components/shared/NotFound/NotFound';
+
+import LoadingSpinner from './components/UI/LoadingSpinner/LoadingSpinner';
+
+//REACT COMPONENTS
+// import Category from './pages/Category/Category';
+// import Home from './pages/Home/Home';
+// import Products from './pages/Products/Products';
+// import Profile from './pages/MyAccount/Profile/Profile';
+// import OrderDetails from './pages/MyAccount/OrderHistory/OrderDetails/OrderDetails';
+// import LogIn from './pages/MyAccount/Login/LogIn';
+// import CreateAccount from './pages/MyAccount/CreateAccount/CreateAccount';
+// import Layout from './components/UI/Layout/Layout';
+// import ScrollToTop from './components/shared/ScrollToTop/ScrollToTop';
+
+const Category = React.lazy(() => import('./pages/Category/Category'));
+const Home = React.lazy(() => import('./pages/Home/Home'));
+const Products = React.lazy(() => import('./pages/Products/Products'));
+const Profile = React.lazy(() => import('./pages/MyAccount/Profile/Profile'));
+const OrderDetails = React.lazy(() =>
+  import('./pages/MyAccount/OrderHistory/OrderDetails/OrderDetails')
+);
+const LogIn = React.lazy(() => import('./pages/MyAccount/Login/LogIn'));
+const CreateAccount = React.lazy(() =>
+  import('./pages/MyAccount/CreateAccount/CreateAccount')
+);
+const Layout = React.lazy(() => import('./components/UI/Layout/Layout'));
+const ScrollToTop = React.lazy(() =>
+  import('./components/shared/ScrollToTop/ScrollToTop')
+);
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -34,27 +54,108 @@ function App() {
       <Route
         path='/'
         element={
-          <ScrollToTop>
-            <Layout />
-          </ScrollToTop>
+          <Suspense fallback={<LoadingSpinner />}>
+            <ScrollToTop>
+              <Layout />
+            </ScrollToTop>
+          </Suspense>
         }
       >
-        <Route index element={<Home />} />
+        <Route
+          index
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <Home />
+            </Suspense>
+          }
+        />
         <Route
           path='/my-account'
-          element={user ? <Profile /> : <Navigate to='log-in' />}
+          element={
+            user ? (
+              <Suspense fallback={<LoadingSpinner />}>
+                <Profile />
+              </Suspense>
+            ) : (
+              <Navigate to='log-in' />
+            )
+          }
+        />
+
+        <Route
+          path='/my-account/order-history'
+          element={
+            user ? (
+              <Suspense fallback={<LoadingSpinner />}>
+                <OrderHistory />
+              </Suspense>
+            ) : (
+              <Navigate to='/my-account/log-in' />
+            )
+          }
+        />
+
+        <Route
+          path='/my-account/order-history/:orderId'
+          element={
+            user ? (
+              <Suspense fallback={<LoadingSpinner />}>
+                <OrderDetails />
+              </Suspense>
+            ) : (
+              <Navigate to='/my-account/log-in' />
+            )
+          }
         />
         <Route
           path='/my-account/log-in'
-          element={user ? <Navigate to={'/my-account'} /> : <LogIn />}
+          element={
+            user ? (
+              <Navigate to={'/my-account'} />
+            ) : (
+              <Suspense fallback={<LoadingSpinner />}>
+                <LogIn />
+              </Suspense>
+            )
+          }
         />
         <Route
           path='/my-account/create-account'
-          element={user ? <Navigate to={'/my-account'} /> : <CreateAccount />}
+          element={
+            user ? (
+              <Navigate to={'/my-account'} />
+            ) : (
+              <Suspense fallback={<LoadingSpinner />}>
+                <CreateAccount />
+              </Suspense>
+            )
+          }
         />
 
-        <Route path='products/:productId' element={<Products />} />
-        <Route path='category/:categoryId' element={<Category />} />
+        <Route
+          path='products/:productId'
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <Products />
+            </Suspense>
+          }
+        />
+        <Route
+          path='category/:categoryId'
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <Category />
+            </Suspense>
+          }
+        />
+        <Route
+          path='/*'
+          element={
+            <Suspense fallback={<LoadingSpinner />}>
+              <NotFound />
+            </Suspense>
+          }
+        />
       </Route>
     )
   );

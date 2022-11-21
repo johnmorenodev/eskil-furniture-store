@@ -3,4 +3,9 @@
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   margin: 1rem 0;
+}
+.shopping__total {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }/*# sourceMappingURL=ShoppingCart.css.map */

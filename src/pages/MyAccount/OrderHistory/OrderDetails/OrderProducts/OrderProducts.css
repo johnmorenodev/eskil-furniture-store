@@ -1,0 +1,32 @@
+.order-products {
+  display: flex;
+  margin: 0.5rem 0;
+}
+.order-products__image {
+  width: 100px;
+  height: auto;
+}
+.order-products__image img {
+  width: 100%;
+}
+.order-products__details, .order-products__subtotal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 0.5rem;
+}
+.order-products__subtotal {
+  font-weight: 700;
+}
+.order-products__quantity, .order-products__price {
+  font-size: 14px;
+}
+.order-products__details {
+  width: calc(100% - 150px - 0.5rem);
+}
+.order-products__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}/*# sourceMappingURL=OrderProducts.css.map */

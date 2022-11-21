@@ -1,8 +1,14 @@
+import { useContext } from 'react';
+
 //CSS
 import './CardWithBorder.css';
 
+import { AuthContext } from '../../../context/authContext';
+
+import { fetchAddProductToCart } from '../../../utils/api';
+
 //THIRD PARTY
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { HiOutlineEye, HiOutlineHeart } from 'react-icons/hi';
 
@@ -24,6 +30,19 @@ const buttonMotion = {
 };
 
 const CardWithBorder = ({ prod }) => {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  const addToCartHandler = () => {
+    if (!user) {
+      return navigate('/my-account/log-in');
+    }
+    fetchAddProductToCart({
+      quantity: 1,
+      token: user.token,
+      productId: prod._id,
+    });
+  };
   return (
     <div className='card__card'>
       <Link to={`/products/${prod._id}`}>
@@ -80,9 +99,9 @@ const CardWithBorder = ({ prod }) => {
           <p className='card__product-name'>{prod.name}</p>
           <p className='card__price'>${prod.price}</p>
         </div>
-        <Link to={`products/${prod._id}`} className='card__add-to-cart'>
+        <button className='card__add-to-cart' onClick={addToCartHandler}>
           Add to Cart
-        </Link>
+        </button>
       </div>
     </div>
   );

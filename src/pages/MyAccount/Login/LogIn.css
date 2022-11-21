@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 500px;
 }
 .log-in h1 {
   text-transform: uppercase;
@@ -23,4 +25,11 @@
 .log-in p {
   color: red;
   margin: 0.5rem 0;
+}
+
+.log-in__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=LogIn.css.map */

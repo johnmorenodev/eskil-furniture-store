@@ -19,7 +19,7 @@ const CategoryProducts = () => {
   const {
     isLoading,
     error,
-    data: categoryProducts,
+    data: cateogry,
   } = useQuery(categoryId, () => fetchProductsCategoryById(categoryId));
 
   if (isLoading) {
@@ -35,7 +35,7 @@ const CategoryProducts = () => {
       <div className='category__products'>
         <h1>All Products</h1>
         <div className='category__products-cards'>
-          {categoryProducts.products.map(prod => {
+          {cateogry.products.map(prod => {
             return <CardWithBorder key={prod._id} prod={prod} />;
           })}
         </div>

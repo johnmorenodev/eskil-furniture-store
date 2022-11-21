@@ -64,7 +64,7 @@ export const fetchGetProfile = async (id, token) => {
 
 export const fetchAddProductToCart = async data => {
   const { productId, token, quantity } = data;
-  console.log(quantity);
+
   try {
     const response = await fetch(
       `http://localhost:3000/addToCart/${productId}`,
@@ -119,6 +119,41 @@ export const fetchRemoveProduct = async data => {
     );
 
     return await result.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const checkoutHandler = async token => {
+  try {
+    const result = await fetch(
+      `http://localhost:3000/create-checkout-session/`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'BEARER ' + token,
+        },
+      }
+    );
+    const url = await result.json();
+    window.location.replace(url.url);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchOrderDetails = async ({ orderId, token }) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/order-details/${orderId}`,
+      {
+        headers: {
+          Authorization: 'BEARER ' + token,
+        },
+      }
+    );
+    return await response.json();
   } catch (error) {
     console.log(error);
   }

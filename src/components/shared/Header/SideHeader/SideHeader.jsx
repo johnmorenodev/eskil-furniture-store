@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 //REACT COMPONENTS
 import Overlay from '../../../UI/Overlay/Overlay';
+import AccountDropDown from '../DesktopHeader/AccountDropDown/AccountDropDown';
 
 //CSS
 import './SideHeader.css';
@@ -13,8 +16,15 @@ import {
   HiOutlineShoppingBag,
 } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const SideHeader = ({ onClick }) => {
+const SideHeader = ({ onClick, handleSidebarOnclick }) => {
+  const [isDropDownOpen, setisDropDownOpen] = useState(false);
+
+  const dropDownHandler = () => {
+    setisDropDownOpen(prevValue => !prevValue);
+  };
+
   return (
     <>
       <motion.div
@@ -42,9 +52,11 @@ const SideHeader = ({ onClick }) => {
                 <HiOutlineSearch />
                 <a href='#'>Search</a>
               </li>
-              <li>
-                <HiOutlineUser />
-                <a href='#'>Account</a>
+              <li onClick={dropDownHandler}>
+                <AccountDropDown
+                  isDropDownOpen={isDropDownOpen}
+                  handleSidebarOnclick={handleSidebarOnclick}
+                />
               </li>
               <li>
                 <HiOutlineHeart />
@@ -52,8 +64,7 @@ const SideHeader = ({ onClick }) => {
               </li>
               <li>
                 <HiOutlineShoppingBag />
-                <a href='#'>Cart</a>
-                <span className='header__desktop-cart-total'>$100</span>
+                <Link to={'/my-account'}>Cart</Link>
               </li>
             </ul>
           </div>

@@ -24,6 +24,8 @@ const CartContents = ({ prod, user }) => {
   const [quantity, setQuantity] = useState(prod.quantity);
   const queryClient = useQueryClient();
 
+  const subTotal = prod.productId.price * quantity;
+
   useEffect(() => {
     changeQuantity(quantity);
   }, [quantity]);
@@ -35,7 +37,7 @@ const CartContents = ({ prod, user }) => {
         quantity: quantity,
         productId: prod.productId._id,
       });
-    }, 500),
+    }, 300),
     []
   );
 
@@ -83,9 +85,7 @@ const CartContents = ({ prod, user }) => {
         <p className='cart__product-price'>
           $ {prod.productId.price} x {quantity}
         </p>
-        <p className='cart__product-subtotal'>
-          $ {prod.productId.price * quantity}
-        </p>
+        <p className='cart__product-subtotal'>$ {subTotal.toFixed(2)}</p>
 
         <div className='cart__product-buttons'>
           <QuantityButton
@@ -93,7 +93,11 @@ const CartContents = ({ prod, user }) => {
             decrementHandler={decrementHandler}
             quantity={quantity ?? 1}
           />
-          <BsTrash size={20} onClick={removeProductHandler} />
+          <BsTrash
+            size={20}
+            onClick={removeProductHandler}
+            className='cart__trash'
+          />
         </div>
       </div>
     </div>

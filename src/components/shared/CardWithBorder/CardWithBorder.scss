@@ -25,11 +25,17 @@
   }
 
   &__add-to-cart {
-    text-decoration: none;
     text-transform: uppercase;
     color: black;
     font-size: 13px;
     font-weight: 600;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__buttons {

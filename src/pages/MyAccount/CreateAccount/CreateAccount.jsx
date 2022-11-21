@@ -67,64 +67,66 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className='create-account'>
-      <h1>Create Account</h1>
-      <FormProvider {...methods}>
-        <form
-          action='/sign-up'
-          method='POST'
-          onSubmit={handleSubmit(formSubmit)}
-        >
-          <div className='create-account__section'>
-            <label htmlFor='username'>Name</label>
-            <Input
-              type='text'
-              id='username'
-              name='username'
-              validation={true}
-              register={register}
-            />
-            <p>{errors.username?.message}</p>
-          </div>
-          <div className='create-account__section'>
-            <label htmlFor='email'>Email</label>
-            <Input
-              type='email'
-              id='email'
-              name='email'
-              validation={true}
-              register={register}
-            />
-            <p>{errors.email?.message}</p>
-          </div>
-          <div className='create-account__section'>
-            <label htmlFor='password'>Password</label>
-            <Input
-              type='password'
-              id='password'
-              name='password'
-              validation={true}
-              register={register}
-            />
-            <p>{errors.password?.message}</p>
-          </div>
-          <div className='create-account__section'>
-            <label htmlFor='confirm'>Confirm Password</label>
-            <Input
-              type='password'
-              id='confirm'
-              name='confirm'
-              validation={true}
-              register={register}
-            />
-            <p>{errors.confirm?.message}</p>
-          </div>
-          {isLoading && <LoadingSpinner size={50} />}
-          {!isLoading && <Button>Create Account</Button>}
-        </form>
-      </FormProvider>
+    <div className='create-account__wrapper'>
+      <div className='create-account'>
+        <h1>Create Account</h1>
+        <FormProvider {...methods}>
+          <form
+            action='/sign-up'
+            method='POST'
+            onSubmit={handleSubmit(formSubmit)}
+          >
+            <div className='create-account__section'>
+              <label htmlFor='username'>Name</label>
+              <Input
+                type='text'
+                id='username'
+                name='username'
+                validation={true}
+                register={register}
+              />
+              <p>{errors.username?.message}</p>
+            </div>
+            <div className='create-account__section'>
+              <label htmlFor='email'>Email</label>
+              <Input
+                type='email'
+                id='email'
+                name='email'
+                validation={true}
+                register={register}
+              />
+              <p>{errors.email?.message}</p>
+            </div>
+            <div className='create-account__section'>
+              <label htmlFor='password'>Password</label>
+              <Input
+                type='password'
+                id='password'
+                name='password'
+                validation={true}
+                register={register}
+              />
+              <p>{errors.password?.message}</p>
+            </div>
+            <div className='create-account__section'>
+              <label htmlFor='confirm'>Confirm Password</label>
+              <Input
+                type='password'
+                id='confirm'
+                name='confirm'
+                validation={true}
+                register={register}
+              />
+              <p>{errors.confirm?.message}</p>
+            </div>
+            {isLoading && <LoadingSpinner size={50} />}
+            {!isLoading && <Button>Create Account</Button>}
+          </form>
+        </FormProvider>
 
-      <Link to={'/my-account/log-in'}>Log In</Link>
+        <Link to={'/my-account/log-in'}>Log In</Link>
+      </div>
     </div>
   );
 };

@@ -50,41 +50,43 @@ const LogIn = () => {
   };
 
   return (
-    <div className='log-in'>
-      <h1>Log In</h1>
-      <FormProvider {...methods}>
-        <form
-          action='/log-in'
-          method='POST'
-          onSubmit={handleSubmit(formSubmit)}
-        >
-          <div className='log-in__section'>
-            <label htmlFor='email'>Email</label>
-            <Input
-              type='email'
-              id='email'
-              name='email'
-              validation={true}
-              register={register}
-            />
-            <p>{errors.email?.message}</p>
-          </div>
-          <div className='log-in__section'>
-            <label htmlFor='password'>Password</label>
-            <Input
-              type='password'
-              id='password'
-              name='password'
-              validation={true}
-              register={register}
-            />
-            <p>{errors.password?.message}</p>
-          </div>
-          <Button>Log In</Button>
-        </form>
-      </FormProvider>
+    <div className='log-in__wrapper'>
+      <div className='log-in'>
+        <h1>Log In</h1>
+        <FormProvider {...methods}>
+          <form
+            action='/log-in'
+            method='POST'
+            onSubmit={handleSubmit(formSubmit)}
+          >
+            <div className='log-in__section'>
+              <label htmlFor='email'>Email</label>
+              <Input
+                type='email'
+                id='email'
+                name='email'
+                validation={true}
+                register={register}
+              />
+              <p>{errors.email?.message}</p>
+            </div>
+            <div className='log-in__section'>
+              <label htmlFor='password'>Password</label>
+              <Input
+                type='password'
+                id='password'
+                name='password'
+                validation={true}
+                register={register}
+              />
+              <p>{errors.password?.message}</p>
+            </div>
+            <Button>Log In</Button>
+          </form>
+        </FormProvider>
 
-      <Link to={'/my-account/create-account'}>Create Account</Link>
+        <Link to={'/my-account/create-account'}>Create Account</Link>
+      </div>
     </div>
   );
 };

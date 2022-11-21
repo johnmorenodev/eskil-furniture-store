@@ -8,18 +8,23 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { AuthContext } from '../../../../../context/authContext';
 
-const AccountDropDown = ({ isDropDownOpen }) => {
+const AccountDropDown = ({ isDropDownOpen, handleSidebarOnclick }) => {
   const { user, dispatch } = useContext(AuthContext);
 
   const logOutHandler = () => {
     dispatch({ type: 'LOG_OUT' });
+    modalHandler();
+  };
+
+  const modalHandler = () => {
+    handleSidebarOnclick();
   };
 
   return (
     <div className='dropdown'>
       <div className='dropdown__account'>
         <HiOutlineUser />
-        <p>Account</p>
+        <p className='dropdown__account-name'>Account</p>
       </div>
       <AnimatePresence>
         {isDropDownOpen && (
@@ -34,11 +39,21 @@ const AccountDropDown = ({ isDropDownOpen }) => {
             }}
             transition={{ duration: 0.3, ease: 'easeIn' }}
           >
-            {user && <Link to={'/my-account'}>My Account</Link>}
+            {user && (
+              <Link to={'/my-account'} onClick={modalHandler}>
+                My Account
+              </Link>
+            )}
             {user && <Link onClick={logOutHandler}>Log Out</Link>}
-            {!user && <Link to={'/my-account/log-in'}>Log In</Link>}
             {!user && (
-              <Link to={'/my-account/create-account'}>Create Account</Link>
+              <Link to={'/my-account/log-in'} onClick={modalHandler}>
+                Log In
+              </Link>
+            )}
+            {!user && (
+              <Link to={'/my-account/create-account'} onClick={modalHandler}>
+                Create Account
+              </Link>
             )}
           </motion.div>
         )}
