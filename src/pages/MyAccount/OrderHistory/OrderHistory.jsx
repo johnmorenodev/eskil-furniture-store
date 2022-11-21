@@ -19,11 +19,11 @@ const OrderHistory = () => {
     data: userData,
   } = useQuery([user.userId], () => fetchGetProfile(user.userId, user.token));
 
-  const { orders } = userData;
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
+
+  const { orders } = userData;
 
   return (
     <div className='order'>
