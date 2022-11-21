@@ -39,7 +39,7 @@
 .header .header__desktop a {
   text-decoration: none;
   color: #000;
-  margin-left: 2px;
+  margin-left: 0.5rem;
 }
 .header .header__desktop span {
   margin-left: 0.3rem;

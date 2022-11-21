@@ -24,9 +24,10 @@
   margin: 1rem 0;
 }
 .sidebar li a {
+  cursor: pointer;
   text-decoration: none;
   color: black;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .sidebar li span {
   margin-left: 0.5rem;

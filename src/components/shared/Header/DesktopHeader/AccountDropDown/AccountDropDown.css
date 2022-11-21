@@ -1,6 +1,10 @@
 .dropdown {
   position: relative;
 }
+.dropdown__account-name {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
 .dropdown__account {
   display: flex;
   align-items: center;

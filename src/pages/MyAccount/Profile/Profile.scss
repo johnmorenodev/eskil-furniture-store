@@ -50,4 +50,11 @@
     display: flex;
     flex-direction: column;
   }
+
+  &__order {
+    text-align: center;
+    margin: 2rem 0;
+
+    color: black;
+  }
 }

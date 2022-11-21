@@ -12,10 +12,11 @@ import { Link } from 'react-router-dom';
 //MISC
 import { fetchCategories } from '../../../utils/api';
 const CategoriesSection = () => {
-  const { isLoading, error, data } = useQuery(
-    'fetchCategories',
-    fetchCategories
-  );
+  const {
+    isLoading,
+    error,
+    data: categories,
+  } = useQuery('fetchCategories', fetchCategories);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -32,7 +33,7 @@ const CategoriesSection = () => {
         <h3>Categories</h3>
       </div>
       <div className='categories__card-container'>
-        {data.categories.map((category, index) => {
+        {categories.map((category, index) => {
           return (
             <Link
               to={`/category/${category._id}`}

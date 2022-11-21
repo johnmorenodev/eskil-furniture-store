@@ -9,6 +9,7 @@ import Button from '../../../components/UI/Button/Button';
 
 //THIRD PARTY
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 //MISC
 import { fetchAddProductToCart } from '../../../utils/api';
@@ -17,6 +18,7 @@ import QuantityButton from '../../../components/UI/Button/QuantityButton/Quantit
 
 const Main = ({ product }) => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -63,13 +65,16 @@ const Main = ({ product }) => {
               />
 
               <Button
-                onClick={() =>
+                onClick={() => {
+                  if (!user) {
+                    return navigate('/my-account/log-in');
+                  }
                   addToCartHandler({
                     quantity,
                     productId: product._id,
                     token: user.token,
-                  })
-                }
+                  });
+                }}
               >
                 Add To Cart
               </Button>

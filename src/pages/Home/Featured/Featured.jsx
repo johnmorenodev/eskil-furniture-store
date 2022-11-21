@@ -12,10 +12,11 @@ import { useQuery } from 'react-query';
 import { fetchFeaturedProducts } from '../../../utils/api';
 
 const Featured = () => {
-  const { isLoading, error, data } = useQuery(
-    'fetchFeatured',
-    fetchFeaturedProducts
-  );
+  const {
+    isLoading,
+    error,
+    data: featuredProducts,
+  } = useQuery('fetchFeatured', fetchFeaturedProducts);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -30,7 +31,7 @@ const Featured = () => {
       <p>Featured</p>
       <h3>Discover Products</h3>
       <div className='featured__card-container'>
-        {data.map(prod => {
+        {featuredProducts.map(prod => {
           return <CardWithBorder key={prod._id} prod={prod} />;
         })}
       </div>

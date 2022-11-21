@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 500px;
+
   h1 {
     text-transform: uppercase;
     font-size: 42px;
@@ -27,4 +30,11 @@
     color: red;
     margin: 0.5rem 0;
   }
+}
+
+.log-in__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

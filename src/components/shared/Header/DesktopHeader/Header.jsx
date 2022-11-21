@@ -1,5 +1,5 @@
 // REACT HOOKS
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 //CSS
 import './Header.css';
@@ -8,13 +8,13 @@ import './Header.css';
 import SideHeader from '../SideHeader/SideHeader';
 import SearchSection from '../Search/SearchSection';
 import AccountDropDown from './AccountDropDown/AccountDropDown';
+import { AuthContext } from '../../../../context/authContext';
 
 //THIRD PARTY
 import { Link } from 'react-router-dom';
 import {
   HiOutlineMenu,
   HiOutlineSearch,
-  HiOutlineUser,
   HiOutlineHeart,
   HiOutlineShoppingBag,
 } from 'react-icons/hi';
@@ -26,7 +26,6 @@ export default function Header() {
   const [isDropDownOpen, setisDropDownOpen] = useState(false);
 
   const dropDownHandler = () => {
-    console.log(isDropDownOpen);
     setisDropDownOpen(prevValue => !prevValue);
   };
 
@@ -67,13 +66,17 @@ export default function Header() {
             <li>
               <HiOutlineShoppingBag />
               <a href='#'>Cart</a>
-              <span className='header__desktop-cart-total'>$100</span>
             </li>
           </ul>
         </div>
       </nav>
       <AnimatePresence>
-        {isSidebarOpen && <SideHeader onClick={handleSidebarOnclick} />}
+        {isSidebarOpen && (
+          <SideHeader
+            onClick={handleSidebarOnclick}
+            handleSidebarOnclick={handleSidebarOnclick}
+          />
+        )}
         {isSearchOpen && <SearchSection onClick={handleSearchOnclick} />}
       </AnimatePresence>
     </header>

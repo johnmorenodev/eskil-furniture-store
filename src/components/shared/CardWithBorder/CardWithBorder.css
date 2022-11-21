@@ -22,11 +22,16 @@
   margin-left: 1rem;
 }
 .card__add-to-cart {
-  text-decoration: none;
   text-transform: uppercase;
   color: black;
   font-size: 13px;
   font-weight: 600;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.card__add-to-cart:hover {
+  text-decoration: underline;
 }
 .card__buttons {
   position: absolute;
