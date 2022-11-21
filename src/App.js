@@ -19,17 +19,6 @@ import NotFound from './components/shared/NotFound/NotFound';
 
 import LoadingSpinner from './components/UI/LoadingSpinner/LoadingSpinner';
 
-//REACT COMPONENTS
-// import Category from './pages/Category/Category';
-// import Home from './pages/Home/Home';
-// import Products from './pages/Products/Products';
-// import Profile from './pages/MyAccount/Profile/Profile';
-// import OrderDetails from './pages/MyAccount/OrderHistory/OrderDetails/OrderDetails';
-// import LogIn from './pages/MyAccount/Login/LogIn';
-// import CreateAccount from './pages/MyAccount/CreateAccount/CreateAccount';
-// import Layout from './components/UI/Layout/Layout';
-// import ScrollToTop from './components/shared/ScrollToTop/ScrollToTop';
-
 const Category = React.lazy(() => import('./pages/Category/Category'));
 const Home = React.lazy(() => import('./pages/Home/Home'));
 const Products = React.lazy(() => import('./pages/Products/Products'));
