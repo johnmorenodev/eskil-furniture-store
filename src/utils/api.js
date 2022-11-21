@@ -1,26 +1,34 @@
 export const fetchProductById = async productId => {
-  const response = await fetch(`http://localhost:3000/products/${productId}`);
+  const response = await fetch(
+    process.env.REACT_APP_BACKEND_URL + `products/${productId}`
+  );
   return await response.json();
 };
 
 export const fetchCategories = async () => {
-  const response = await fetch('http://localhost:3000/categories');
+  const response = await fetch(
+    process.env.REACT_APP_BACKEND_URL + 'categories'
+  );
   return await response.json();
 };
 
 export const fetchProductsCategoryById = async categoryId => {
-  const response = await fetch(`http://localhost:3000/category/${categoryId}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND_URL}category/${categoryId}`
+  );
   return await response.json();
 };
 
 export const fetchFeaturedProducts = async () => {
-  const response = await fetch('http://localhost:3000/featuredProducts');
+  const response = await fetch(
+    process.env.REACT_APP_BACKEND_URL + 'featuredProducts'
+  );
   return await response.json();
 };
 
 export const fetchCreateUser = async userData => {
   try {
-    const res = await fetch('http://localhost:3000/sign-up', {
+    const res = await fetch(process.env.REACT_APP_BACKEND_URL + 'sign-up', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +44,7 @@ export const fetchCreateUser = async userData => {
 
 export const fetchLogInRequest = async credentials => {
   try {
-    const res = await fetch('http://localhost:3000/log-in', {
+    const res = await fetch(process.env.REACT_APP_BACKEND_URL + 'log-in', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,11 +59,14 @@ export const fetchLogInRequest = async credentials => {
 
 export const fetchGetProfile = async (id, token) => {
   try {
-    const response = await fetch(`http://localhost:3000/user-data/${id}`, {
-      headers: {
-        Authorization: 'BEARER ' + token,
-      },
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}user-data/${id}`,
+      {
+        headers: {
+          Authorization: 'BEARER ' + token,
+        },
+      }
+    );
     return await response.json();
   } catch (error) {
     console.log(error);
@@ -67,7 +78,7 @@ export const fetchAddProductToCart = async data => {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/addToCart/${productId}`,
+      `${process.env.REACT_APP_BACKEND_URL}addToCart/${productId}`,
       {
         method: 'POST',
         headers: {
@@ -87,7 +98,7 @@ export const fetchChangeQuantity = async data => {
   const { token, quantity, productId } = data;
   try {
     const result = await fetch(
-      `http://localhost:3000/changeQuantity/${productId}`,
+      `${process.env.REACT_APP_BACKEND_URL}changeQuantity/${productId}`,
       {
         method: 'PATCH',
         headers: {
@@ -108,7 +119,7 @@ export const fetchRemoveProduct = async data => {
   const { token, productId } = data;
   try {
     const result = await fetch(
-      `http://localhost:3000/removeProduct/${productId}`,
+      `${process.env.REACT_APP_BACKEND_URL}removeProduct/${productId}`,
       {
         method: 'DELETE',
         headers: {
@@ -127,7 +138,7 @@ export const fetchRemoveProduct = async data => {
 export const checkoutHandler = async token => {
   try {
     const result = await fetch(
-      `http://localhost:3000/create-checkout-session/`,
+      `${process.env.REACT_APP_BACKEND_URL}create-checkout-session/`,
       {
         method: 'POST',
         headers: {
@@ -146,7 +157,7 @@ export const checkoutHandler = async token => {
 export const fetchOrderDetails = async ({ orderId, token }) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/order-details/${orderId}`,
+      `${process.env.REACT_APP_BACKEND_URL}order-details/${orderId}`,
       {
         headers: {
           Authorization: 'BEARER ' + token,
