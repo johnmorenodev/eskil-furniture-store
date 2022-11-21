@@ -11,16 +11,6 @@ import { fetchGetProfile } from '../../../utils/api';
 // import OrderContents from './OrderContents/OrderContents';
 const OrderContents = React.lazy(() => import('./OrderContents/OrderContents'));
 
-const fetchOrders = async token => {
-  const res = await fetch('http://localhost:3000/orders', {
-    headers: {
-      Authorization: 'BEARER ' + token,
-    },
-  });
-
-  return await res.json();
-};
-
 const OrderHistory = () => {
   const { user } = useContext(AuthContext);
   const {
