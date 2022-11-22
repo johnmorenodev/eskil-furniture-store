@@ -53,6 +53,7 @@ const LogIn = () => {
     <div className='log-in__wrapper'>
       <div className='log-in'>
         <h1>Log In</h1>
+        {error && <p className='log-in__error'>{error.message}</p>}
         <FormProvider {...methods}>
           <form
             action='/log-in'

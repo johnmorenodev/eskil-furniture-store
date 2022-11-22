@@ -36,7 +36,12 @@ export const fetchCreateUser = async userData => {
       body: JSON.stringify(userData),
     });
 
-    return await res.json();
+    const json = await res.json();
+
+    if (!res.ok) {
+      return Promise.reject(json);
+    }
+    return json;
   } catch (error) {
     console.log(error);
   }
@@ -51,7 +56,12 @@ export const fetchLogInRequest = async credentials => {
       },
       body: JSON.stringify(credentials),
     });
-    return await res.json();
+
+    const json = await res.json();
+    if (!res.ok) {
+      return Promise.reject(json);
+    }
+    return json;
   } catch (error) {
     console.log(error);
   }
@@ -59,7 +69,7 @@ export const fetchLogInRequest = async credentials => {
 
 export const fetchGetProfile = async (id, token) => {
   try {
-    const response = await fetch(
+    const res = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}user-data/${id}`,
       {
         headers: {
@@ -67,7 +77,11 @@ export const fetchGetProfile = async (id, token) => {
         },
       }
     );
-    return await response.json();
+    const json = await res.json();
+    if (!res.ok) {
+      return Promise.reject(json);
+    }
+    return json;
   } catch (error) {
     console.log(error);
   }
