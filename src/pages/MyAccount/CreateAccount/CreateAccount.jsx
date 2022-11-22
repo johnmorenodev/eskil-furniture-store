@@ -70,6 +70,7 @@ const CreateAccount = () => {
     <div className='create-account__wrapper'>
       <div className='create-account'>
         <h1>Create Account</h1>
+        {error && <p className='create-account__error'>{error.message}</p>}
         <FormProvider {...methods}>
           <form
             action='/sign-up'

@@ -15,7 +15,6 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/authContext';
 import { fetchGetProfile } from '../../../utils/api';
 
-// import ShoppingCart from './ShoppingCart/ShoppingCart';
 const ShoppingCart = React.lazy(() => import('./ShoppingCart/ShoppingCart'));
 
 const Profile = () => {
@@ -28,6 +27,10 @@ const Profile = () => {
 
   if (isLoading) {
     return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return console.log(error);
   }
 
   return (
