@@ -25,7 +25,7 @@ const ShoppingCart = ({ userData }) => {
         className='checkout__button'
         onClick={() => checkoutHandler(user.token)}
       >
-        Procced to checkout
+        Proceed to checkout
       </Button>
     </>
   );

@@ -50,7 +50,9 @@ const SideHeader = ({ onClick, handleSidebarOnclick }) => {
             <ul>
               <li>
                 <HiOutlineSearch />
-                <a href='#'>Search</a>
+                <a href='#' onClick={handleSidebarOnclick}>
+                  Search
+                </a>
               </li>
               <li onClick={dropDownHandler}>
                 <AccountDropDown
@@ -60,11 +62,15 @@ const SideHeader = ({ onClick, handleSidebarOnclick }) => {
               </li>
               <li>
                 <HiOutlineHeart />
-                <a href='#'>Wishlist</a>
+                <a href='#' onClick={handleSidebarOnclick}>
+                  Wishlist
+                </a>
               </li>
               <li>
                 <HiOutlineShoppingBag />
-                <Link to={'/my-account'}>Cart</Link>
+                <Link to={'/my-account'} onClick={handleSidebarOnclick}>
+                  Cart
+                </Link>
               </li>
             </ul>
           </div>

@@ -22,23 +22,19 @@ const CategoryProducts = () => {
     data: cateogry,
   } = useQuery(categoryId, () => fetchProductsCategoryById(categoryId));
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
-  if (error) {
-    return <p>An error has occured.</p>;
-  }
-
   return (
     <>
       <div className='category__products'>
         <h1>All Products</h1>
-        <div className='category__products-cards'>
-          {cateogry.products.map(prod => {
-            return <CardWithBorder key={prod._id} prod={prod} />;
-          })}
-        </div>
+        {isLoading && <LoadingSpinner />}
+        {error && <h1>An error has occured.</h1>}
+        {cateogry && (
+          <div className='category__products-cards'>
+            {cateogry.products.map(prod => {
+              return <CardWithBorder key={prod._id} prod={prod} />;
+            })}
+          </div>
+        )}
       </div>
       <CategoriesSection />
     </>

@@ -18,23 +18,19 @@ const Featured = () => {
     data: featuredProducts,
   } = useQuery('fetchFeatured', fetchFeaturedProducts);
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
-  if (error) {
-    return <h1>An error has occured.</h1>;
-  }
-
   return (
     <div className='featured'>
       <p>Featured</p>
       <h3>Discover Products</h3>
-      <div className='featured__card-container'>
-        {featuredProducts.map(prod => {
-          return <CardWithBorder key={prod._id} prod={prod} />;
-        })}
-      </div>
+      {isLoading && <LoadingSpinner />}
+      {error && <h1>An error has occured.</h1>}
+      {featuredProducts && (
+        <div className='featured__card-container'>
+          {featuredProducts.map(prod => {
+            return <CardWithBorder key={prod._id} prod={prod} />;
+          })}
+        </div>
+      )}
     </div>
   );
 };

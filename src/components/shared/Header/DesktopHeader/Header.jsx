@@ -65,7 +65,7 @@ export default function Header() {
             </li>
             <li>
               <HiOutlineShoppingBag />
-              <a href='#'>Cart</a>
+              <Link to='/my-account'>Cart</Link>
             </li>
           </ul>
         </div>
