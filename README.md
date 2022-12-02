@@ -4,11 +4,11 @@
 
 ### Technologies
 This project is created with:
-• React
-• SASS
-• Express
-• Node
-• MongoDB
-• Mongoose
-• React - Query
+* React
+* SASS
+* Express
+* Node
+* MongoDB
+* Mongoose
+* React-Query
 
