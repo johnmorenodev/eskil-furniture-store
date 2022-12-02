@@ -6,7 +6,7 @@
 Eskil is an eccomerce furniture with features of adding and removing products to the cart, user register and log in, as well as a checkout feature. 
 
 When opening the page, the user is greeted with a responsive user interface that includes the featured products section and categories section. 
-![](<img src="https://media.giphy.com/media/19ioqOCt6EK0ou3SeY/giphy.gif" width="500" />)
+![](https://media.giphy.com/media/19ioqOCt6EK0ou3SeY/giphy.gif)
 
 ### Functionalities
 * Authentication using email and password
