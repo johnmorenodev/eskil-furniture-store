@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# ESKIL - FURNITURE STORE || FULL STACK ECCOMERCE APPLICATION
+## [Live Demo](https://eskil-furniture-store.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A fully functional Eccomerce Application built with React and Express.
 
-## Available Scripts
+### Overview
+Eskil is an eccomerce furniture with features of adding and removing products to the cart, user register and log in, as well as a checkout feature. 
 
-In the project directory, you can run:
+When opening the page, the user is greeted with a responsive user interface that includes the featured products section and categories section. 
 
-### `npm start`
+![](https://media.giphy.com/media/19ioqOCt6EK0ou3SeY/giphy.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+On the Featured Products section, clicking on the product will redirect the users to the product details page. Users can also click the add to cart button to add the product to the cart. When the add to cart button is clicked and the user is not logged in, the user will be redirected to the log in section instead.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](https://media.giphy.com/media/kXHM4nRHj9am9MXDgt/giphy.gif)
 
-### `npm test`
+On the Categories section, clicking on a category will redirect the users to the category page, where all the products of the category will be shown. Users can the click on the products shown to redirect to the products page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![](https://media.giphy.com/media/PZ9OROT14NCW4Bp4v1/giphy.gif)
 
-### `npm run build`
+On the Products page, the users will be able to see the details about the products. They will be able to add the product to the cart with a custom quantity by clicking the quantity button and add to cart button. On the bottom page, users are recommended with related products.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://media.giphy.com/media/0DGjCkVbkXlMauf4kB/giphy.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+On the Account page, users can choose to log in to their existing accounts or create one. Creating an account will include a validation on users input. When the validations failed, users will be told what inputs are wrong and what they should change. Validation includes: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* no empty fields
+* valid and unique email
+* a strong password (atlest 8 characters long, 1 symbol and 1 uppercase character)
 
-### `npm run eject`
+When the validation is successful, users will be logged in to the page immediately and will be redirected to the shopping cart page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![](https://media.giphy.com/media/0wCLuhIbO8zNzGzpGa/giphy.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When a user is logged in, users can add products to their shopping cart and be able to checkout their products. After checking out, users will be redirected to the home page, and will be able to see their order history if they have one.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![](https://media.giphy.com/media/VEZDjj7DPcN5t31oTf/giphy.gif)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Functionalities
+* Authentication using email and password
+* Checkout feature using stripe integration
+* Add and remove products on user's cart
+* See order history upon succesful checkout
+* Animations using framer motion for better user experience
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Technologies
+This project is created with:
+* React
+* SASS
+* Express
+* Node
+* MongoDB
+* Mongoose
+* React-Query
+* Framer Motion
