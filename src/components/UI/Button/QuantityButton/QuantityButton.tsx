@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import React, { MouseEvent } from 'react';
 
 import './QuantityButton.css';
+
+type QuantityButtonProps = {
+  className: string;
+  quantity: number;
+  incrementHandler: (event: MouseEvent<HTMLElement>) => void;
+  decrementHandler: (event: MouseEvent<HTMLElement>) => void;
+};
 
 const QuantityButton = ({
   className = '',
   quantity = 1,
   incrementHandler,
   decrementHandler,
-}) => {
+}: QuantityButtonProps) => {
   const classNames = className;
 
   return (
